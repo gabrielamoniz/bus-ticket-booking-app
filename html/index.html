@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Ticket Booking App</title>
+    <link rel="stylesheet" href="/css/styles.css"></link>
+    <script src="/javascript/script.js"></script>
+
+</head>
+<body onload="header(); footer()">
+    <header>
+      <h1 id="header">
+        <span class="main-title"></span>
+        <span class="author"></span>
+      </h1>
+    </header>
+  
+    <hr>
+    <div class="container">
+      <form id="bookingForm">
+        <div class="menu-dropdown">
+          <label for="departureCity">Departure City</label>
+         
+          <select id="departureCity" onchange="updateArrivalOptions()">
+            <option value="">Choose</option>
+            <option value="montreal">Montreal</option>
+            <option value="ottawa">Ottawa</option>
+            <option value="quebec">Quebec City</option>
+            <option value="toronto">Toronto</option>
+          </select>
+        </div>
+
+        <div class="menu-dropdown">
+          <label for="arrivalCity">Arrival City</label>
+          
+          <select id="arrivalCity" onchange="updateDepartureOptions()">
+            <option value="">Choose</option>
+            <option value="montreal">Montreal</option>
+            <option value="ottawa">Ottawa</option>
+            <option value="quebec">Quebec City</option>
+            <option value="toronto">Toronto</option>
+          </select>
+        </div>
+
+        <div class="bus-services">
+         
+          <label for="busServices" style="font-weight: bold;">Bus services</label>
+          <label for="megabus"><input type="radio" id="megabus" name="bus-service" value="Megabus" /> Megabus</label>
+          <label for="coachCanada"><input type="radio" id="coachCanada" name="bus-service" value="Coach Canada" /> Coach Canada</label>
+          <label for="greyhound"><input type="radio" id="greyhound" name="bus-service" value="Greyhound" /> Greyhound</label>
+        </div>
+
+        <div class="date">
+          <label for="calendar">Date</label>
+          <input type="date" id="calendar" name="calendar" />
+        </div>
+
+        <div class="tickets">
+          <label for="numOfTickets"> Number of tickets </label>
+          <div class="ticket-controls">
+          <input type="number" id="numOftickets" placeholder="Maximum 10 tickets" max="10" min="0"/>
+          <button type="button" onclick="incrementNumOfTickets()">+</button>
+          <button type="button" onclick="decrementNumOfTickets()">-</button>
+        </div>
+        </div>
+  
+        <div class="time">
+          <label for="departureTimes">Departure Time</label>
+          <p></p>
+          <div class="departure-buttons">
+          <button type="button" class="departureTime" onclick="selectDeptime(this)">06:00 AM</button>
+          <button type="button" class="departureTime" onclick="selectDeptime(this)">08:00 AM</button>
+          <button type="button" class="departureTime" onclick="selectDeptime(this)">02:00 PM</button>
+          <button type="button" class="departureTime" onclick="selectDeptime(this)">04:00 PM</button>
+        </div>
+    </div>
+ 
+        <div class="customer-info">
+          <label for="name"> First Name </label>
+          <input type="text" id="firstName" placeholder="Enter First Name"/>
+          <label for="name"> Last Name </label>
+          <input type="text" id="lastName" placeholder="Enter Last Name"/>
+          <label for="email"> Email </label>
+          <input type="email" id="email" placeholder="Enter your email"/>
+          <label for="ages"> Age </label>
+          <input type="number" id="age" placeholder="Minimum 18 years" min="18"/>
+        </div>
+    
+        <div class="gender">
+          <label for="gender" style="font-weight: bold;">Gender:</label>
+          <label for="male"><input type="radio" id="male" name="gender" value="Male" /> Male</label>
+          <label for="female"><input type="radio" id="female" name="gender" value="Female" /> Female</label>
+        </div>
+    
+        <button type="button" onclick="saveData()">Save Data</button>
+      </form>
+    </div>
+    <hr>
+    <footer>
+      <p id="displayFooter"></p>
+    </footer>
+  </body>
+</html>
